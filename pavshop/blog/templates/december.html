@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+
+
+    <!--======= SUB BANNER =========-->
+    <section class="sub-bnr" data-stellar-background-ratio="0.5">
+        <div class="position-center-center">
+            <div class="container">
+                <h4>PAVSHOP blog list</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
+                    Sed feugiat, tellus vel tristique posuere, diam</p>
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">BLOG</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div id="content">
+
+        <!-- Blog List -->
+        <section class="blog-list blog-list-3 padding-top-100 padding-bottom-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <h1 style="text-align: center; margin-bottom: 40px;">DECEMBER BLOGS</h1>
+                        <!-- Article -->
+                        <article>
+                            {%for dek in dekabr%}
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <!-- Post Img -->
+                                    <img class="img-responsive" src="{{dek.image.url}}" alt="">
+                                </div>
+                                <div class="col-sm-7">
+                                    <!-- Tittle -->
+                                    <div class="post-tittle left"> <a href="{% url 'blog_detail' dek.id %}"
+                                            class="tittle">{{dek.title}}</a>
+                                        <!-- Post Info -->
+                                        <span><i class="primary-color icon-user"></i> by admin</span> <span><i
+                                                class="primary-color icon-calendar"></i> {{dek.created_at}}</span>
+                                        <span><i class="primary-color icon-bubble"></i> 05</span> <span><i
+                                                class="primary-color icon-tag"></i>
+                                            Furniture</span>
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="text-left">
+                                        <p>{{dek.description}}</p>
+
+                                        <a href="{% url 'blog_detail' dek.id %}" class="red-more">READ MORE</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </article>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Culture BLOCK -->
+        <section class="cultur-block">
+            <ul>
+                <li> <img src="images/cultur-img-1.jpg" alt=""> </li>
+                <li> <img src="images/cultur-img-2.jpg" alt=""> </li>
+                <li> <img src="images/cultur-img-3.jpg" alt=""> </li>
+                <li> <img src="images/cultur-img-4.jpg" alt=""> </li>
+            </ul>
+
+            <!-- Culture Text -->
+            <div class="position-center-center">
+                <div class="container">
+                    <div class="col-sm-6 center-block">
+                        <h4>FOLLOW US @ INSTAGRAM</h4>
+                        <p>Phasellus lacinia fermentutm bibendum. Interdum et malante ipuctus non. Nulla lacinia,
+                            eros vel fermentum consectetur, ris dolor in ex. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    </div>
+    {% endblock %}
+</body>
+
+</html>

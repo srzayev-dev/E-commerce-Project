@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>SHOPPING CART</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula. 
+          Sed feugiat, tellus vel tristique posuere, diam</p>
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">SHOP</a></li>
+          <li class="active">SHOPPING CART</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Content -->
+  <div id="content"> 
+    
+    <!--======= PAGES INNER =========-->
+    <section class="padding-top-100 padding-bottom-100 pages-in chart-page">
+      <div class="container"> 
+        
+        <!-- Payments Steps -->
+        <div class="shopping-cart text-center" id="shoppinglist">
+          
+          <!-- Cart Details -->
+         
+        </div>
+      </div>
+    </section>
+    
+    <!--======= PAGES INNER =========-->
+    <section class="padding-top-100 padding-bottom-100 light-gray-bg shopping-cart small-cart">
+      <div class="container"> 
+        
+        <!-- SHOPPING INFORMATION -->
+        <div class="cart-ship-info margin-top-0">
+          <div class="row"> 
+            
+            <!-- DISCOUNT CODE -->
+            <div class="col-sm-7">
+              <h6>DISCOUNT CODE</h6>
+              <form>
+                <input type="text" value="" placeholder="ENTER YOUR CODE IF YOU HAVE ONE">
+                <button type="submit" class="btn btn-small btn-dark">APPLY CODE</button>
+              </form>
+              <div class="coupn-btn">
+                 <a href="#." class="btn">continue shopping</a>
+                 <a href="#." class="btn" id="updatebtn">update cart</a> </div>
+            </div>
+            
+            <!-- SUB TOTAL -->
+            <div class="col-sm-5">
+              <h6>grand total</h6>
+              <div class="grand-total">
+                <div class="order-detail">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About -->
+    <section class="small-about padding-top-150 padding-bottom-150">
+      <div class="container"> 
+        
+        <!-- Main Heading -->
+        <div class="heading text-center">
+          <h4>about PAVSHOP</h4>
+          <p>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odio luctus non. Nulla lacinia,
+            eros vel fermentum consectetur, risus purus tempc, et iaculis odio dolor in ex. </p>
+        </div>
+        
+        <!-- Social Icons -->
+        <ul class="social_icons">
+          <li><a href="#."><i class="icon-social-facebook"></i></a></li>
+          <li><a href="#."><i class="icon-social-twitter"></i></a></li>
+          <li><a href="#."><i class="icon-social-tumblr"></i></a></li>
+          <li><a href="#."><i class="icon-social-youtube"></i></a></li>
+          <li><a href="#."><i class="icon-social-dribbble"></i></a></li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- News Letter -->
+    <!-- <section class="news-letter padding-top-150 padding-bottom-150">
+      <div class="container">
+        <div class="heading light-head text-center margin-bottom-30">
+          <h4>NEWSLETTER</h4>
+          <span>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odi </span> </div>
+        <form>
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">SEND ME</button>
+        </form>
+      </div>
+    </section> -->
+  </div>
+  
+</div>
+{% endblock %}
+</body>
+</html>

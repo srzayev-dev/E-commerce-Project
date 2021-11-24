@@ -1,0 +1,307 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content  %}
+<body>
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>PAVSHOP PRODUCTS</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula. 
+          Sed feugiat, tellus vel tristique posuere, diam</p>
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">Data</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Content -->
+  <div id="content"> 
+    
+    <!-- Products -->
+    <section class="shop-page padding-top-100 padding-bottom-100">
+      <div class="container">
+        <div class="row"> 
+          
+          <!-- Item Content -->
+          <div class="col-sm-9">
+            <div class="item-display">
+              <div class="row"> 
+                <!-- Products Select -->
+                <div class="col-xs-6">
+                  <div class="pull-left"> 
+                    
+                    <!-- Short By -->
+                    <select class="selectpicker">
+                      <option>Short By</option>
+                      <option>Short By</option>
+                      <option>Short By</option>
+                    </select>
+                    <!-- Filter By -->
+                    <select class="selectpicker">
+                      <option>Filter By</option>
+                      <option>Short By</option>
+                      <option>Short By</option>
+                    </select>
+                    
+                    <!-- GRID & LIST --> 
+                    <button class="grid-style" onclick="myFunction2()"><i id="icon-grid2" class="icon-grid"></i></button> <button onclick="myFunction()" class="list-style"><i  class="icon-list"></i></button> </div>
+                </div>
+                <div class="col-xs-6 text-right"> <span class="product-num">Showing 1 - 10 of 30 products</span> </div>
+              </div>
+            </div>
+            
+            <!-- Popular Item Slide -->
+            <div class="papular-block row single-img-demos"> 
+              <!-- Item -->
+              {% for product in page_obj %}
+              <div class="col-md-4" style="height: 500px;">
+                <div class="item"> 
+                  <!-- Item img -->
+                  <div class="item-img"> <img style="height: 350px; width: 250px;" class="img-1"  src="{{product.main_version.image.url}}" alt="" >
+                    <!-- Overlay -->
+                    <div class="overlay">
+                      <div class="position-center-center">
+                    <div class="inn"><a href="{{product.main_version.image.url}}" data-lighter><i class="icon-magnifier"></i></a> <i id="basket-set" data="{{product.id}}"  class="icon-basket"></i></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Item Name -->
+                  <div class="item-name"> <a href="{% url 'product_detail' product.id %}">{{product.title}}</a>
+                    <p>{{product.mini_description}}</p>
+                  </div>
+                  <!-- Price --> 
+                  <span class="price"><small>$</small>{{product.price}}</span> </div>
+              </div>  
+              {% endfor %}
+
+            <!-- Pagination -->
+
+            {% if is_paginated %}
+            <ul class="pagination in-center">
+
+              {% if page_obj.has_previous %}
+              <li><a page="{{ page_obj.previous_page_number }} id="previous">&laquo;</a></li>
+              {% else %}
+              <li class="disabled"><span>&laquo;</span></li>
+              {%endif%}
+
+              {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+              <li><a class="page_num">{{ i }}</a></li>
+              {% endif %}
+              {% endfor %}
+
+              {% if page_obj.has_next %}
+              <li><a page="{{ page_obj.next_page_number }}" id="next">&raquo;</a></li>
+              {% else %}
+              <li class="disabled"><span>&raquo;</span></li>
+              {% endif %}
+            </ul>
+            {% endif %}
+          </div>
+          </div>
+          <!-- Shop SideBar -->
+          <div class="col-sm-3">
+            <div class="shop-sidebar"> 
+              
+              <!-- Category -->
+              <h5 class="shop-tittle margin-bottom-30">category</h5>
+              <ul class="shop-cate">
+
+                {% for category in categories %}
+                <li>
+                  <form action="" method="get" style="display: flex;">
+                  <button
+                          type="button"
+                          name="category_name"
+                          value="{{ category.title }}"
+                          style="background-color: transparent;
+                          border: none;
+                          position: relative;
+                          color: #2d3a4b;
+                          line-height: 38px;
+                          border-bottom: 1px solid #d1d5db;
+                          display: inline-block;
+                          width: 100%;
+                          font-size: 14px;  
+                          padding-left: 10px;
+                          text-align: left;">
+                          {{category.title}} 
+
+                          <span style="position: absolute; right: 0%;"> {{ category.Category.count }} </span>
+                        </button>
+                        
+                  </form> 
+                  </li>
+                  {% endfor %}
+              </ul>
+              
+              <!-- FILTER BY PRICE -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">FILTER BY PRICE</h5>
+              <form action="" method="get">
+                <select id="filterPrice" class="form-select" aria-label="Default select example" style="margin-left: 10px;" name="priceranger">
+                  <option selected>Select a price range</option>
+                  <option value="1"> Less than 100$ </option>
+                  <option value="2"> 100$ - 300$ </option>
+                  <option value="3"> 300$ - 600$ </option>
+                  <option value="4"> 600$ - 800$ </option>
+                  <option value="5"> 800$ - 1000$ </option>
+                  <option value="6"> More Than 1000$ </option>
+                </select>
+                <button type="submit" class="btn btn-primary btn-sm" style="margin-top: 7px; margin-left: 10px;" id="priceSubmit"> Filter </button>
+              </form>
+              <!-- TAGS -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">FILTER BY COLORS</h5>
+              <ul class="colors" style="background: linen;">
+                <form action="" method="get">
+                <li><button type="button" name="color_name" value="orange"
+                    style="background: orange;"
+                    class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="yellow"
+                      style="background: yellow;"
+                      class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="green"
+                        style="background: green;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="cyan"
+                        style="background: Cyan;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="purple"
+                        style="background: Purple;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="white"
+                        style="background: White;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="black"
+                        style="background: Black;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="brown"
+                        style="background: Brown;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="magenta"
+                        style="background: Magenta;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="tan"
+                        style="background: Tan;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="olive"
+                        style="background: Olive;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="maroon"
+                        style="background: Maroon;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="navy"
+                        style="background: Navy;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="aquamarine"
+                        style="background: Aquamarine;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="turquoise"
+                        style="background: Turquoise;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="silver"
+                        style="background: Silver;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="lime"
+                        style="background: Lime;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="pink"
+                        style="background: Pink;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="violet"
+                        style="background: Violet;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="gray"
+                        style="background: Gray;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="indigo"
+                        style="background: Indigo;"
+                        class="btn btn-primary btn-sm"></button></li>
+                <li><button type="button" name="color_name" value="red"
+                        style="background: red;"
+                        class="btn btn-primary btn-sm"></button></li>
+              </form>
+              </ul>
+              
+              <!-- TAGS -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">PAUPLAR TAGS</h5>
+              <div style="display: flex">
+              {%for tag in popular_tag%}
+              <ul class="shop-tags">
+                <li><a href="#.">{{tag}}</a></li>
+              </ul>
+              {%endfor%}
+            </div>
+              
+              <!-- BRAND -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">brands</h5>
+              {%for brand in brands%}
+              <ul class="shop-cate">
+                <li><button style="background-color: transparent; border: none;"
+                  type="button" name="brand" value="{{ brand.title }}">
+                  {{brand.title}}</button> </li>
+              </ul>
+              {%endfor%}
+              
+              <!-- SIDE BACR BANER -->
+              <div class="side-bnr margin-top-50"> <img class="img-responsive" src="{% static 'images/sidebar-bnr.jpg' %}" alt="">
+                <div class="position-center-center"> <span class="price"><small>$</small>299</span>
+                  <div class="bnr-text">look
+                    hot
+                    with
+                    style</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About -->
+    <section class="small-about padding-top-150 padding-bottom-150">
+      <div class="container"> 
+        
+        <!-- Main Heading -->
+        <div class="heading text-center">
+          <h4>about PAVSHOP</h4>
+          <p>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odio luctus non. Nulla lacinia,
+            eros vel fermentum consectetur, risus purus tempc, et iaculis odio dolor in ex. </p>
+        </div>
+        
+        <!-- Social Icons -->
+        <ul class="social_icons">
+          <li><a href="#."><i class="icon-social-facebook"></i></a></li>
+          <li><a href="#."><i class="icon-social-twitter"></i></a></li>
+          <li><a href="#."><i class="icon-social-tumblr"></i></a></li>
+          <li><a href="#."><i class="icon-social-youtube"></i></a></li>
+          <li><a href="#."><i class="icon-social-dribbble"></i></a></li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- News Letter -->
+    <!-- <section class="news-letter padding-top-150 padding-bottom-150">
+      <div class="container">
+        <div class="heading light-head text-center margin-bottom-30">
+          <h4>NEWSLETTER</h4>
+          <span>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odi </span> </div>
+        <form>
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">SEND ME</button>
+        </form>
+      </div>
+    </section> -->
+  </div>
+  {% block js %}
+  <script src="{% static 'js/styleProduct.js' %}"></script>
+  <script src="{% static 'js/filter.js' %}"></script>
+  {% endblock js %}
+  {% endblock %}
+</body>
+</html>

@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+
+
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>PAVSHOP blog list</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
+          Sed feugiat, tellus vel tristique posuere, diam</p>
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">BLOG</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div id="content">
+
+    <!-- Blog List -->
+    <section class="blog-list blog-list-3 padding-top-100 padding-bottom-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+
+            <!-- Article -->
+            <article>
+              {% for blg in page_obj %}
+              <div class="row">
+                <div class="col-sm-5">
+                  <!-- Post Img -->
+                  <img class="img-responsive" style="width: 450px; height: 250px;" src="{{blg.image.url}}" alt="">
+                </div>
+                <div class="col-sm-7">
+                  <!-- Tittle -->
+                  <div class="post-tittle left"> <a href="{% url 'blog_detail' blg.id %}"
+                      class="tittle">{{blg.title}}</a>
+                    <!-- Post Info -->
+                    <span><i class="primary-color icon-user"></i> by {{user.username}}</span> <span><i
+                        class="primary-color icon-calendar"></i> {{blg.created_at}}</span>
+                        <span><i class="primary-color icon-tag"></i> {{blg.category}} </span>
+                  </div>
+                  <!-- Post Content -->
+                  <div class="text-left">
+                    <p>{{blg.description}}</p>
+
+                    <a href="{% url 'blog_detail' blg.id %}" class="red-more">READ MORE</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </article>
+
+            <!-- Pagination -->
+           
+            {% if is_paginated %}
+            <ul class="pagination in-center">
+
+              {% if page_obj.has_previous %}
+              <li><a href="?page={{page_obj.previous_page_number}}" page="{{ page_obj.previous_page_number }} id="previous">&laquo;</a></li>
+              {% else %}
+              <li class="disabled"><span>&laquo;</span></li>
+              {%endif%}
+
+              {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+              <li><a href="?page={{i}}" page={{i}} class="page_num">{{ i }}</a></li>
+              {% endif %}
+              {% endfor %}
+
+              {% if page_obj.has_next %}
+              <li><a href="?page={{page_obj.next_page_number}}" page="{{ page_obj.next_page_number }}" id="next">&raquo;</a></li>
+              {% else %}
+              <li class="disabled"><span>&raquo;</span></li>
+              {% endif %}
+            </ul>
+            {% endif %}
+          </div>
+
+          <!-- Sider Bar -->
+         
+          <div class="col-md-3">
+            <div class="search">
+              <form action="{% url 'search_blog' %}" method="POST">
+                {% csrf_token %}
+                <input class="form-control" type="seach" , name="search_b" placeholder="Search Blog">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+            <div class="shop-sidebar">
+
+              <!-- Category -->
+              <h5 class="shop-tittle margin-bottom-30">category</h5>
+              <ul class="shop-cate">
+                {% for category in all_blogs_categories %}
+                <li>
+                  <form action="" method="get">
+
+                    <button type="submit" name="category_name" value="{{ category.title }}" style="background-color: transparent;
+                    border: none;
+                    position: relative;
+                    color: #2d3a4b;
+                    line-height: 38px;
+                    border-bottom: 1px solid #d1d5db;
+                    display: inline-block;
+                    width: 100%;
+                    font-size: 14px;  
+                    padding-left: 10px;
+                    text-align: left;">
+                      {{category.title}}
+
+                      <span style="position: absolute; right: 0%;"> {{category.blogs.count }} </span>
+                    </button>
+
+                  </form>
+                </li>
+                {%endfor%}
+              </ul>
+
+
+              <!-- Recent Post -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">recent post</h5>
+              {%for pos in blogs%}
+              <ul class="papu-post margin-top-20">
+                <li class="media">
+                  <div class="media-left"> <a href="#"> <img class="media-object" src="{{ pos.image.url }}" alt=""></a>
+                  </div>
+                  <div class="media-body"> <a class="media-heading" href="#.">{{pos.description|truncatewords:3}}</a>
+                    <span>Posted on {{pos.created_at}}</span>
+                  </div>
+                </li>
+              </ul>
+              {%endfor%}
+
+              <!-- TAGS -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">PAUPLAR TAGS</h5>
+              <div style="display: flex">
+                {%for tag in popular_tag%}
+                <ul class="shop-tags">
+                  <li><a href="#.">{{tag}}</a></li>
+                  <!-- <li><a href="#.">Chair</a></li>
+                <li><a href="#.">Bedsheets</a></li>
+                <li><a href="#.">Shoe</a></li>
+                <li><a href="#.">Curtains</a></li>
+                <li><a href="#.">Clocks</a></li>
+                <li><a href="#.">TV Cabinets</a></li>
+                <li><a href="#.">Best Seller</a></li>
+                <li><a href="#.">Top Selling</a></li> -->
+                </ul>
+                {%endfor%}
+              </div>
+
+
+              <!-- BRAND -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">archives</h5>
+              <ul class="shop-cate">
+                <li><a href="{% url 'january_blogs' %}"> January </a></li>
+                <li><a href="{% url 'february_blogs' %}"> February </a></li>
+                <li><a href="{% url 'march_blogs' %}"> March </a></li>
+                <li><a href="{% url 'april_blogs' %}"> April </a></li>
+                <li><a href="{% url 'may_blogs' %}"> May </a></li>
+                <li><a href="{% url 'june_blogs' %}"> June </a></li>
+                <li><a href="{% url 'july_blogs'%}"> July </a></li>
+                <li><a href="{% url 'august_blogs'%}"> August </a></li>
+                <li><a href="{% url 'september_blogs'%}"> September </a></li>
+                <li><a href="{% url 'october_blogs'%}"> October </a></li>
+                <li><a href="{% url 'november_blogs'%}">November</a></li>
+                <li><a href="{% url 'december_blogs'%}"> December </a></li>
+              </ul>
+
+              <!-- SIDE BACR BANER -->
+              <div class="side-bnr margin-top-50"> <img class="img-responsive"
+                  src="{% static 'images/sidebar-bnr.jpg'%}" alt="">
+                <div class="position-center-center"> <span class="price"><small>$</small>299</span>
+                  <div class="bnr-text">look
+                    hot
+                    with
+                    style</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Culture BLOCK -->
+    <section class="cultur-block">
+      <ul>
+        <!-- <li> <img src="images/cultur-img-1.jpg" alt=""> </li>
+        <li> <img src="images/cultur-img-2.jpg" alt=""> </li>
+        <li> <img src="images/cultur-img-3.jpg" alt=""> </li>
+        <li> <img src="images/cultur-img-4.jpg" alt=""> </li> -->
+      </ul>
+
+      <!-- Culture Text -->
+      <div class="position-center-center">
+        <div class="container">
+          <div class="col-sm-6 center-block">
+            <h4>FOLLOW US @ INSTAGRAM</h4>
+            <p>Phasellus lacinia fermentutm bibendum. Interdum et malante ipuctus non. Nulla lacinia,
+              eros vel fermentum consectetur, ris dolor in ex. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Letter -->
+    <!-- <section class="news-letter padding-top-150 padding-bottom-150">
+      <div class="container">
+        <div class="heading light-head text-center margin-bottom-30">
+          <h4>NEWSLETTER</h4>
+          <span>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odi
+          </span>
+        </div>
+        <form>
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">SEND ME</button>
+        </form>
+      </div>
+    </section> -->
+  </div>
+
+
+  </div>
+  {% endblock %}
+</body>
+
+</html>

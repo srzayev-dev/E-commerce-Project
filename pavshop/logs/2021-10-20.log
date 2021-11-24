@@ -1,0 +1,71 @@
+INFO:django.utils.autoreload:/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/users/views.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:django.utils.autoreload:/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/users/views.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:django.utils.autoreload:/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/users/views.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:django.utils.autoreload:/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/users/views.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:django.utils.autoreload:/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/users/views.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/users/login/', 'run_time': 0.20976829528808594}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/users/logout/', 'run_time': 0.0821230411529541}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/', 'run_time': 0.02172398567199707}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/users/login/', 'run_time': 0.027870893478393555}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'POST', 'request_path': '/users/login/', 'run_time': 0.4046478271484375}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/', 'run_time': 0.10593008995056152}
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/contact/', 'run_time': 0.2756490707397461}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/contact/', 'run_time': 0.08481097221374512}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/', 'run_time': 0.1641521453857422}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/images/cultur-img-1.jpg', 'run_time': 0.025738954544067383}
+WARNING:django.request:Not Found: /blog/blog/list/images/cultur-img-1.jpg
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/images/cultur-img-2.jpg', 'run_time': 0.014483928680419922}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/images/cultur-img-3.jpg', 'run_time': 0.014006853103637695}
+WARNING:django.request:Not Found: /blog/blog/list/images/cultur-img-2.jpg
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/images/cultur-img-4.jpg', 'run_time': 0.0167691707611084}
+WARNING:django.request:Not Found: /blog/blog/list/images/cultur-img-3.jpg
+WARNING:django.request:Not Found: /blog/blog/list/images/cultur-img-4.jpg
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_list/', 'run_time': 0.2910768985748291}
+ERROR:django.request:Internal Server Error: /media/products/image/hediyyeler1.png
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/pavshop/middleware.py", line 66, in __call__
+    if response and response["content-type"] == "application/json":
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/http/response.py", line 178, in __getitem__
+    return self.headers[header]
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 316, in __getitem__
+    return self._store[key.lower()][1]
+KeyError: 'content-type'
+ERROR:django.request:Internal Server Error: /media/products/image/adler_finley_4.jpg
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/pavshop/middleware.py", line 66, in __call__
+    if response and response["content-type"] == "application/json":
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/http/response.py", line 178, in __getitem__
+    return self.headers[header]
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 316, in __getitem__
+    return self._store[key.lower()][1]
+KeyError: 'content-type'
+ERROR:django.request:Internal Server Error: /media/products/image/clever_wc4.jpeg
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/pavshop/middleware.py", line 66, in __call__
+    if response and response["content-type"] == "application/json":
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/http/response.py", line 178, in __getitem__
+    return self.headers[header]
+  File "/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 316, in __getitem__
+    return self._store[key.lower()][1]
+KeyError: 'content-type'
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_list/', 'run_time': 0.18303680419921875}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/media/products/image/clever_wc4.jpeg', 'run_time': 0.002566099166870117}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/media/products/image/adler_finley_4.jpg', 'run_time': 0.002526998519897461}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/media/products/image/hediyyeler1.png', 'run_time': 0.0005748271942138672}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_detail/5/', 'run_time': 0.21520686149597168}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_detail/', 'run_time': 0.006597995758056641}
+WARNING:django.request:Not Found: /product_detail/
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/', 'run_time': 0.17992401123046875}
+DEBUG:asyncio:Using selector: KqueueSelector

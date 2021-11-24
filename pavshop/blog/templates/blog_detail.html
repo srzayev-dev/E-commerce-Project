@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>THE unique CHAIR BY PAVSHOP</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
+          Sed feugiat, tellus vel tristique posuere, diam</p>
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">BLOg details</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div id="content">
+
+    <!-- Blog List -->
+    <section class="blog-list blog-list-3 single-post padding-top-100 padding-bottom-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+
+            <!-- Article -->
+
+            <article>
+              <!-- Post Img -->
+              <img class="img-responsive" src="{{ blog_detail.image.url }}" alt="">
+              <!-- Tittle -->
+
+              <div class="post-tittle left"> <a href="#." class="tittle">{{blog_detail.title}}</a>
+                <!-- Post Info -->
+                <span><i class="primary-color icon-user"></i> by admin</span> <span><i
+                    class="primary-color icon-calendar"></i>{{blog_detail.created_at}}</span>
+                  <span><i class="primary-color icon-tag"></i>
+                  {{blog_detail.category}}</span>
+              </div>
+              <!-- Post Content -->
+              <div class="text-left">
+                <p>{{blog_detail.description}}</p>
+                </p>
+                <h6 class="margin-top-80 margin-bottom-30">proeduct history</h6>
+                {{blog_detail.full_description|safe}}</p>
+
+
+                <!-- LIST STYLE -->
+                <ul class="list-group margin-top-50 margin-top-20">
+                  <li>
+                    <p>Donec sed dictum leo, et posuere felis. </p>
+                  </li>
+                  <li>
+                    <p> Sed pharetra mauris vel varius suscipit. Aliquam lectus velit, </p>
+                  </li>
+                  <li>
+                    <p> Tempus id est ut, volutpat maximus sapien. </p>
+                  </li>
+                </ul>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat dui aolutpat dui at lacus
+                  aliquet, a consequat et lacus aliquet, a consequat enim aliquet. Integer molestie sit ame.</p>
+
+                <!-- Blockquote -->
+                <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat dui at lacus
+                  aliquet, a consequat enim aliquet. Integer molestie sit amet sem et faucibus. </blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. NullamMorbi ac scelerisque mauris. Etiam
+                  sodales a nulla ornare viverra. Nunc at blandit neque, bociis natoque penatibus et magnnascetiscing
+                  elit. NullamMorbi ac scelerisque miscing elit. NullamMorbi ac scelerisque mur ridic volutpat dui at
+                  lacus aliquet, a consequat enim aliquet. Integer molestie sit ame.</p>
+
+                <!-- ADMIN info -->
+                <div class="admin-info">
+                  <div class="media-left">
+                    <div class="admin-pic"> <img src="{% static 'images/admin-avatar.jpg' %}" alt=""> </div>
+                  </div>
+                  <div class="media-body">
+                    <h6>NATASHA S. <span>Co-Founder</span></h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. NullamMorbi ac scelerisque mauris.
+                      Etiam sodales a nulla ornare viverra. Nunc at blandit neque, bociis natoque penatcing e
+                      scelerisque miscing elit. </p>
+                    <div class="admin-social"> <a href="#."><i class="icon-social-facebook"></i></a> <a href="#."><i
+                          class="icon-social-twitter"></i></a> <a href="#."><i class="icon-social-dribbble"></i></a>
+                      <a href="#."><i class="icon-envelope"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                {% if request.user.is_authenticated %}
+                <!--=======  COMMENTS =========-->
+                <div class="comments margin-top-80">
+                  <h5 class="shop-tittle margin-bottom-30">COMMENTS</h5>
+                  <ul class="media-list padding-left-15">
+                    <!--=======  COMMENTS =========-->
+                    {% for comment in comments %}
+                    {% if not comment.replied %}
+                    <li class="media">
+                      <div class="media-left"> <a href="#" class="avatar"> <img class="media-object img-responsive"
+                            src="{% static 'images/avatar-3.jpg' %}" alt=""> <br>
+                        </a> </div>
+                      <div class="media-body">
+                        <h6 class="media-heading">{{ user.first_name }} {{user.last_name}}
+                          <span><i class="icon-clock primary-color"></i>{{comment.created_at }}</span></h6>
+                        <p>{{comment.message}} </p>
+                        <a href="#." class="raply"><i class="icon-bubble primary-color"></i> Reply</a>
+                      </div>
+                    </li>
+
+                    {% for reply in comment.replies.all %}
+                    <!--=======  COMMENTS =========-->
+                    <li class="media padding-left-100">
+                      <div class="media-left"> <a href="#" class="avatar"> <img class="media-object img-responsive"
+                            src="{% static 'images/avatar-2.jpg' %}" alt=""> <br>
+                        </a> </div>
+                      <div class="media-body">
+                        <h6 class="media-heading">{{reply.name}} {{reply.created_at}} <span><i
+                              class="icon-clock primary-color"></i></span></h6>
+                        <p>{{reply.message}}</p>
+                        <a href="#." class="raply"><i class="icon-bubble primary-color"></i> Reply</a>
+                      </div>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                  </ul>
+                  <hr>
+
+                  <!--=======  LEAVE COMMENTS =========-->
+                  <h5 class="shop-tittle margin-top-80">POST YOUR COMMENTS</h5>
+
+                  <form class="padding-left-15" method="POST" name="comment_blog">
+                    {% csrf_token %}
+                    <ul class="row">
+                      <li class="col-sm-4">
+                        <label>Subject
+                          {{form.subject}}
+                        </label>
+                      </li>
+                      <li class="col-sm-12">
+                        <label>COMMENTS
+                          {{form.message}}
+                        </label>
+                      </li>
+                      <li class="col-sm-12">
+                        <button type="submit" class="btn margin-top-30" name="comment_blog">Submit Comment </button>
+                      </li>
+                    </ul>
+                  </form>
+                </div>
+                {% endif %}
+              </div>
+            </article>
+            <hr>
+
+            <!--  You May Like -->
+            <h5 class="shop-tittle margin-top-50 margin-bottom-50">you may like </h5>
+            <div class="alos-like padding-left-15">
+              <!-- Article -->
+              <article>
+                {%for blo in blog%}
+                {%if blo.category == blog_detail.category%}
+                {%if blo.id != blog_detail.id%}
+
+                <div class="row">
+                  <div class="col-sm-5">
+                    <!-- Post Img -->
+                    <img class="img-responsive" src="{{ blo.image.url }}" alt="">
+                  </div>
+                  <div class="col-sm-7">
+                    <!-- Tittle -->
+                    <div class="post-tittle left"> <a href="#." class="tittle">{{blo.title}}</a>
+                      <!-- Post Info -->
+                      <span><i class="primary-color icon-user"></i> by {{user.username}}</span> <span><i
+                          class="primary-color icon-calendar"></i> {{blo.created_at}}</span> 
+                          <span><i class="primary-color icon-tag"></i>
+                        {{blo.category}}</span>
+                    </div>
+                    <!-- Post Content -->
+                    <div class="text-left">
+                      <p>{{blo.description}}</p>
+                      <a href="#." class="red-more">READ MORE</a>
+                    </div>
+                  </div>
+                </div>
+                {%endif %}
+                {%endif %}
+                {%endfor%}
+              </article>
+
+
+
+            </div>
+          </div>
+
+          <!-- Sider Bar -->
+          <div class="col-md-3">
+            <div class="shop-sidebar">
+
+              <!-- Category -->
+              <!-- <h5 class="shop-tittle margin-bottom-30">category</h5>
+              <ul class="shop-cate">
+                {% for category in all_blogs_categories %}
+                <li>
+                  <form action="" method="get">
+                    <button type="submit" name="category_name" value="{{ category.title }}" style="background-color: transparent;
+                      border: none;
+                      position: relative;
+                      color: #2d3a4b;
+                      line-height: 38px;
+                      border-bottom: 1px solid #d1d5db;
+                      display: inline-block;
+                      width: 100%;
+                      font-size: 14px;  
+                      padding-left: 10px;
+                      text-align: left;">
+                      {{category.title}}
+
+                      <span style="position: absolute; right: 0%;"> {{category.blogs.count }} </span>
+                    </button>
+
+                  </form>
+                </li>
+                {%endfor%}
+              </ul> -->
+
+              <!-- Recent Post -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">recent post</h5>
+              {%for pos in blogs%}
+              <ul class="papu-post margin-top-20">
+                <li class="media">
+                  <div class="media-left"> <a href="#"> <img class="media-object" src="{{ pos.image.url }}" alt=""></a>
+                  </div>
+                  <div class="media-body"> <a class="media-heading" href="#.">{{pos.description|truncatewords:3}}</a>
+                    <span>Posted on {{pos.created_at}}</span> </div>
+                </li>
+              </ul>
+              {%endfor%}
+
+              <!-- TAGS -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">PAUPLAR TAGS</h5>
+              {%for tag in popular_tag%}
+              <ul class="shop-tags">
+                <li><a href="#.">{{tag}}</a></li>
+                <!-- <li><a href="#."></a></li>
+                  <li><a href="#.">Bedsheets</a></li>
+                  <li><a href="#.">Shoe</a></li>
+                  <li><a href="#.">Curtains</a></li>
+                  <li><a href="#.">Clocks</a></li>
+                  <li><a href="#.">TV Cabinets</a></li>
+                  <li><a href="#.">Best Seller</a></li>
+                  <li><a href="#.">Top Selling</a></li> -->
+              </ul>
+              {%endfor%}
+
+
+              <!-- SIDE BACR BANER -->
+              <div class="side-bnr margin-top-50"> <img class="img-responsive"
+                  src="{% static 'images/sidebar-bnr.jpg' %}" alt="">
+                <div class="position-center-center"> <span class="price"><small>$</small>299</span>
+                  <div class="bnr-text">look
+                    hot
+                    with
+                    style</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Culture BLOCK -->
+    <section class="cultur-block">
+      <ul>
+        <li> <img src="{% static 'images/cultur-img-1.jpg' %}" alt=""> </li>
+        <li> <img src="{% static 'images/cultur-img-2.jpg' %}" alt=""> </li>
+        <li> <img src="{% static 'images/cultur-img-3.jpg' %}" alt=""> </li>
+        <li> <img src="{% static 'images/cultur-img-4.jpg' %}" alt=""> </li>
+      </ul>
+
+      <!-- Culture Text -->
+      <div class="position-center-center">
+        <div class="container">
+          <div class="col-sm-6 center-block">
+            <h4>FOLLOW US @ INSTAGRAM</h4>
+            <p>Phasellus lacinia fermentutm bibendum. Interdum et malante ipuctus non. Nulla lacinia,
+              eros vel fermentum consectetur, ris dolor in ex. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Letter -->
+    <!-- <section class="news-letter padding-top-150 padding-bottom-150">
+        <div class="container">
+          <div class="heading light-head text-center margin-bottom-30">
+            <h4>NEWSLETTER</h4>
+            <span>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere
+              odi </span>
+          </div>
+          <form>
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">SEND ME</button>
+          </form>
+        </div>
+      </section> -->
+  </div>
+
+  {% endblock %}
+
+</body>
+
+</html>

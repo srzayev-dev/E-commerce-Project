@@ -1,0 +1,41 @@
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_detail/', 'run_time': 0.03702664375305176}
+WARNING:django.request:Not Found: /product_detail/
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_list/', 'run_time': 0.28337788581848145}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_list/', 'run_time': 0.23378491401672363}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/users/change_password/', 'run_time': 0.30783700942993164}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_list/', 'run_time': 0.4384589195251465}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/product_detail/5/', 'run_time': 0.2610929012298584}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/4/', 'request_body': {}, 'response_body': {'title': 'python', 'discount': 13, 'price': '1200.00', 'designer': None, 'brand': None, 'mini_description': 'jncsajkcnas', 'full_description': 'ac c a caa', 'info': 'acnjancjanc', 'info_delivery': 'casnc ans ca chj c', 'product_category': 1, 'total_quantity': 9, 'main_version': {'id': 3, 'created_at': '2021-10-15T21:59:34.887033+04:00', 'updated_at': '2021-10-15T21:59:34.887092+04:00', 'size': 'M', 'color': 'gray', 'quantity': 9, 'image': '/media/products/image/adler_finley_4.jpg', 'is_main': True, 'product': 4}, 'versions': []}, 'run_time': 0.160660982131958}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/1/', 'request_body': {}, 'run_time': 0.3891918659210205}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/1/versions/', 'request_body': {}, 'run_time': 0.11170315742492676}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/1/versions/1/', 'request_body': {}, 'run_time': 0.1013181209564209}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/', 'run_time': 0.26619505882263184}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/images/cultur-img-1.jpg', 'run_time': 0.010463953018188477}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/images/cultur-img-2.jpg', 'run_time': 0.005522966384887695}
+WARNING:django.request:Not Found: /blog/blog/list/images/cultur-img-2.jpg
+WARNING:django.request:Not Found: /blog/blog/list/images/cultur-img-1.jpg
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/images/cultur-img-4.jpg', 'run_time': 0.01090097427368164}
+WARNING:django.request:Not Found: /blog/blog/list/images/cultur-img-4.jpg
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/images/cultur-img-3.jpg', 'run_time': 0.023648977279663086}
+WARNING:django.request:Not Found: /blog/blog/list/images/cultur-img-3.jpg
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/', 'request_body': {}, 'run_time': 0.32015109062194824}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/1/', 'request_body': {}, 'run_time': 0.22504019737243652}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/', 'request_body': {}, 'run_time': 0.3016698360443115}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/1/', 'request_body': {}, 'run_time': 0.3303070068359375}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/1/versions/', 'request_body': {}, 'run_time': 0.10648226737976074}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/shop_01.html', 'run_time': 0.009435892105102539}
+WARNING:django.request:Not Found: /blog/blog/list/shop_01.html
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/blog/blog/list/shop_01.html', 'run_time': 0.00820016860961914}
+WARNING:django.request:Not Found: /blog/blog/list/shop_01.html
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/about_us/', 'run_time': 0.15226292610168457}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/about_us/images/sub-bnr-bg-1.jpg', 'run_time': 0.006237983703613281}
+WARNING:django.request:Not Found: /about_us/images/sub-bnr-bg-1.jpg
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/contact/', 'run_time': 0.08215689659118652}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/users/logout/', 'run_time': 0.10647892951965332}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/', 'run_time': 0.024844646453857422}
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/register/', 'request_body': {}, 'run_time': 0.09672427177429199}
+WARNING:django.request:Method Not Allowed: /api/register/
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/register/', 'request_body': {}, 'run_time': 0.07874917984008789}
+WARNING:django.request:Method Not Allowed: /api/register/
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/users/login/', 'run_time': 0.03701901435852051}
+DEBUG:asyncio:Using selector: KqueueSelector

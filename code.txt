@@ -1,0 +1,1 @@
+./manage.py sqlmigrate core 0001_initial

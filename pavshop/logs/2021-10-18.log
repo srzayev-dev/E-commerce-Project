@@ -1,0 +1,6 @@
+INFO:django.utils.autoreload:/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/pavshop/settings.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:pavshop.middleware:{'remote_address': '127.0.0.1', 'server_hostname': 'MacBooks-MacBook-Pro-2.local', 'request_method': 'GET', 'request_path': '/api/products/', 'request_body': {}, 'run_time': 0.33483219146728516}
+INFO:django.utils.autoreload:/Users/macbookpro/Desktop/pavshop/E-commerce-Pavshop-Lambda/pavshop/pavshop/middleware.py changed, reloading.
+DEBUG:asyncio:Using selector: KqueueSelector
+DEBUG:asyncio:Using selector: KqueueSelector

@@ -1,0 +1,181 @@
+{% load static %}
+{% load i18n%}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+
+<!-- Wrap -->
+<div id="wrap"> 
+  
+  <!-- header -->
+  <header>
+    <div class="sticky">
+      <div class="container"> 
+        
+        <!-- Logo -->
+        <div class="logo"> <a href="{% url 'home' %}"><img class="img-responsive" src="{% static 'images/logo.png' %}" alt="" ></a> </div>
+        <nav class="navbar ownmenu">
+          
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"><i class="fa fa-navicon"></i></span> </button>
+          </div>
+          
+          
+           <!-- NAV -->
+          <div class="collapse navbar-collapse" id="nav-open-btn">
+            <ul class="nav">
+              <li class="dropdown"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">{%translate 'Languages'%}</a>
+                <ul class="dropdown-menu">  
+                  <li> <a href="{% url 'set_language' %}?lang=en"><img src="{% static 'images/english.png' %}" alt="en-flag"> En</a> </li>
+                  <li> <a href="{% url 'set_language' %}?lang=az"><img width="16px" height="11px" src="{% static 'images/azerbaijan-flag-png-xl.png' %}" alt="aze-flag"> Aze </a> </li>
+                </ul>
+              </li>
+              <li> <a href="{% url 'home' %}">{%blocktranslate%} Home {%endblocktranslate%} </a> </li>
+              <li> <a href="{% url 'blog_list' %}"> Blogs </a> </li>
+              
+              <li> <a href="{% url 'about_us' %}">About </a> </li>
+              
+              <!-- Two Link Option -->
+              <!-- <li class="dropdown"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">Designer</a>
+                <div class="dropdown-menu two-option">
+                  <div class="row">
+                    <ul class="col-sm-6">
+                      <li> <a href="shop_01.html">summer store</a></li>
+                      <li> <a href="shop_01.html"> sarees</a></li>
+                      <li> <a href="shop_01.html"> kurtas</a></li>
+                      <li> <a href="shop_01.html"> shorts & tshirts</a></li>
+                      <li> <a href="shop_01.html"> winter wear</a></li>
+                      <li> <a href="shop_01.html"> jeans</a></li>
+                      <li> <a href="shop_01.html"> bra</a></li>
+                      <li> <a href="shop_01.html"> babydools</a> </li>
+                    </ul>
+                    <ul class="col-sm-6">
+                      <li> <a href="shop_01.html">deodornts</a></li>
+                      <li> <a href="shop_01.html"> skin care</a></li>
+                      <li> <a href="shop_01.html"> make up</a></li>
+                      <li> <a href="shop_01.html"> watch</a></li>
+                      <li> <a href="shop_01.html"> siting bags</a></li>
+                      <li> <a href="shop_01.html"> totes</a></li>
+                      <li> <a href="shop_01.html"> gold rings</a></li>
+                      <li> <a href="shop_01.html"> jewellery</a> </li>
+                    </ul>
+                  </div>
+                </div>
+              </li> -->
+              
+              <!-- MEGA MENU -->
+              <li> <a href="{% url 'product_list' %}">Store </a> </li>
+              <!-- <li class="dropdown megamenu"> <a href="{% url 'product_list' %}" class="dropdown-toggle" data-toggle="dropdown">store</a> -->
+                <!-- <div class="dropdown-menu"> -->
+                  <!-- <div class="row">  -->
+                    
+                    <!-- Shop Pages -->
+                    <!-- <div class="col-md-3">
+                      <h6>Shop Pages</h6>
+                      <ul>
+                        <li> <a href="shop_01.html">Shop 01 </a> </li>
+                        <li> <a href="shop_02.html">Shop 02</a> </li>
+                        <li> <a href="shop_03.html">Shop 03 </a> </li>
+                        <li> <a href="shop_04.html">Shop 04 </a> </li>
+                        <li> <a href="#">Product Detail 01</a> </li>
+                        <li> <a href="product-detail_02.html">Product Detail 02</a> </li>
+                        <li> <a href="{% url 'shopping_cart' %}">Shopping Cart</a> </li>
+                        <li> <a href="{% url 'checkout' %}">Checkout</a> </li>
+                      </ul>
+                    </div> -->
+                    
+                    <!-- TOp Rate Products -->
+                    <!-- <div class="col-md-4">
+                      <h6>TOp Rate Products</h6>
+                      <div class="top-rated">
+                        <ul>
+                        
+                          {%for prod in top_products%}
+                          <li>
+                            <div class="media-left">
+                              <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="{{ prod.main_version.image.url }}" alt="..."> </a> </div>
+                            </div>
+                            <div class="media-body">
+                              <h6 class="media-heading">{{prod.title}}</h6>
+                              <div class="stars"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                              <span class="price">{{prod.price}} USD</span> </div>
+                            </li>
+                            {%endfor%}
+                        </ul>
+                      </div>
+                    </div> -->
+                    
+                    <!-- New Arrival -->
+                    <!-- <div class="col-md-5">
+                      <h5>NEW ARRIVAL 2016 <span>(Best Collection)</span></h5>
+                      <img class="nav-img" src="{% static 'images/nav-img.png' %}" alt="" >
+                      <p>Lorem ipsum dolor sit amet,<br>
+                        consectetur adipiscing elit. <br>
+                        Donec faucibus maximus<br>
+                        vehicula.</p>
+                      <a href="#." class="btn btn-small btn-round">SHOP NOW</a> </div>
+                  </div> -->
+                <!-- </div> -->
+              <!-- </li> -->
+              <li> <a href="{% url 'contact' %}"> contact</a> </li>
+            </ul>
+          </div>
+          
+          <!-- Nav Right -->
+          <div class="nav-right">
+            <ul class="navbar-right">
+              <!-- USER INFO -->
+              
+              <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
+                
+                <ul class="dropdown-menu">
+                  {% if request.user.is_authenticated %}
+                  <li>
+                    <h6>HELLO! {{user.first_name}} {{user.last_name}}</h6>
+                  </li>
+                  <li><a href="#">MY CART</a></li>
+                  <li><a href="{%url 'profile'%}">ACCOUNT INFO</a></li>
+                  <li><a href="{%url 'change_password'%}">CHANGE PASSWORD</a></li>
+                  <li><a href="{%url 'logout'%}">LOG OUT</a></li>
+                  
+                {% else %}
+                  <li><a href="{%url 'login'%}">LOG IN</a></li>
+                  <li><a href="{%url 'register'%}">REGISTER</a></li>
+                {% endif %}
+              </ul>
+              </li>
+              
+              <!-- USER BASKET -->
+              {% if request.user.is_authenticated %}
+              <li class="dropdown user-basket"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
+                <ul id="basket-main" class="dropdown-menu">                  
+                </ul>
+              </li>
+              {% endif %}
+              <!-- SEARCH BAR -->
+              <li class="dropdown"> <a href="javascript:void(0);" class="search-open"><i class=" icon-magnifier"></i></a>
+                <div class="search-inside animated bounceInUp"> <i class="icon-close search-close"></i>
+                  <div class="search-overlay"></div>
+                  <div class="position-center-center">
+                    <div class="search">
+                      <form method="POST" action="{% url 'search-product' %}">
+                        
+                        {% csrf_token %}
+
+                        <input type="search" placeholder="Search Product Name" name="searched">
+                        <button type="submit"><i class="icon-check"></i></button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
